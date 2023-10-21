@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Download Vídeo Aulas Canvas",
+    "description": "Download Vídeo Aulas Canvas",
+    "version": "1.3.1",
+    "permissions": ["activeTab", "tabs", "scripting", "management", "storage"],
+    "host_permissions": ["*://*/"],
+    "action": {
+      "default_title": "Download Vídeo Canva",
+      "default_popup": "index.html",
+      "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "js": ["redirect.js"],
+        "matches": ["*://pucminas.instructuremedia.com/lti-app/*"]
+      }, 
+      {
+        "js": ["download-video.js"],
+        "matches": ["*://iad.cdn.nv.instructuremedia.com/originals/*"]
+      }
+    ]
+  }
